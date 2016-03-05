@@ -42,12 +42,33 @@ function getAlbum (req, res) {
 
 // EDIT
 // GET /quotes/:id/edit
-// function editAlbum (req, res) {
-//   Album.findById(req.params.id, function (error, album) {
-//     if (error) { res.json({ messsage: "Couldn't find album: " + error }); }
-//     res.render('partials/quote-form', { album: album });
-//   });
-// }
+function editAlbum (req, res) {
+  Album.findById(req.params.id, function (error, album) {
+    if (error) { res.json({ messsage: "Couldn't find album: " + error }); }
+    res.render('partials/album-form', { album: album });
+  });
+}
+
+// UPDATE
+// PUT /album/:id
+function updateAlbum (req, res) {
+  Album.findById(req.params.id, function (error, album) {
+    if (error) { res.json({ message: 'Could not find quote b/c:' + error }); }
+    if (req.body.name) { album.name = req.body.name; }
+    if (req.body.artist) { album.artist = req.body.artist; }
+    if (req.body.release_date) { album.release_date = req.body.release_date; }
+    if (req.body.genre) { album.genre = req.body.genre; }
+    if (req.body.image) { album.image = req.body.image; }
+    album.save(function (error) {
+      if (error) { res.json({ messsage: 'Could not update album b/c:' + error }); }
+      Album.find({}, function (error, quotes) {
+        if (error) { res.json({ messsage: 'Error finding album: ' + error }); }
+        res.redirect('/albums');
+      });
+    });
+  });
+}
+
 
 
 module.exports = {
@@ -55,7 +76,7 @@ module.exports = {
   newAlbum: newAlbum,
   createAlbum: createAlbum,
   getAlbum: getAlbum,
-  // editAlbum: editAlbum,
-  // updateQuote: updateQuote,
+  editAlbum: editAlbum,
+  updateAlbum: updateAlbum,
   // removeQuote: removeQuote
 };

@@ -12,11 +12,11 @@ router.route('/albums')
 router.route('/albums/new')
   .get(albumsController.newAlbum);
 router.route('/albums/:id')
-  .get(albumsController.getAlbum);
-//   .put(quotesController.updateQuote)
+  .get(albumsController.getAlbum)
+  .put(albumsController.updateAlbum);
 //   .delete(quotesController.removeQuote);
-// router.route('/albums/:id/edit')
-//   .get(albumsController.editAlbums);
+router.route('/albums/:id/edit')
+  .get(albumsController.editAlbum);
 
 
 module.exports = router;

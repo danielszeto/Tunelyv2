@@ -1,0 +1,15 @@
+     <form id="edit-quote-form" method="POST"
+          action="/albums/<%= album._id %>?_method=PUT">
+          <!-- why doesn't value="<#%= quote.body %>" display? -->
+        <input name="name" class="form-control" id="quote-body"
+            placeholder="Album Name"></textarea> <br>
+        <input name="artist" type="text" class="form-control" id="quote-author"
+            placeholder="Artist"> <br>
+        <input name="release_date" type="text" class="form-control" id="quote-author"
+            placeholder="Release_Date"> <br>
+        <input name="genre" type="text" class="form-control" id="quote-author"
+            placeholder="Genre"> <br>
+        <input name="image" type="text" class="form-control" id="quote-author"
+            placeholder="Album Image"> <br>
+        <button type="submit" class="btn btn-default">Edit</button>
+      </form>

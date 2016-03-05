@@ -34,7 +34,7 @@
               Artist: <%= albums[i].artist %> <br/> 
               Genre: <%= albums[i].genre %> <br/> 
               Release Date: <%= albums[i].release_date %> </p>
-            <a href="/albums/:id/edit" class="btn btn-primary">Edit</a>
+            <a href="/albums/<%= albums[i].id %>/edit" class="btn btn-primary">Edit</a>
       </div>
   </div>
 </div>

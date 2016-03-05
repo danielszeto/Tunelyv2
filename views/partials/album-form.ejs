@@ -1,0 +1,50 @@
+<% include head %>
+
+  <div class="container"> <br><br>
+
+  <h2> Add Album </h2>
+
+    <div class='col-sm-4 col-sm-offset-4'>
+
+    <% if (album) { %>
+
+      <form id="edit-quote-form" method="POST"
+          action="/albums/<%= album._id %>?_method=PUT">
+          <!-- why doesn't value="<#%= quote.body %>" display? -->
+        <input name="name" class="form-control" id="quote-body"
+            placeholder="Album Name"></textarea> <br>
+        <input name="artist" type="text" class="form-control" id="quote-author"
+            placeholder="Artist"> <br>
+        <input name="release_date" type="text" class="form-control" id="quote-author"
+            placeholder="Release_Date"> <br>
+        <input name="genre" type="text" class="form-control" id="quote-author"
+            placeholder="Genre"> <br>
+        <input name="image" type="text" class="form-control" id="quote-author"
+            placeholder="Album Image"> <br>
+        <button type="submit" class="btn btn-default">Update</button>
+      </form>
+
+    <% } else { %>
+
+
+      <form id="new-quote-form" method="POST" action="/albums">
+        <input name="name" class="form-control" id="quote-body"
+            placeholder="Album Name"></textarea> <br>
+        <input name="artist" type="text" class="form-control" id="quote-author"
+            placeholder="Artist"> <br>
+        <input name="release_date" type="text" class="form-control" id="quote-author"
+            placeholder="Release_Date"> <br>
+        <input name="genre" type="text" class="form-control" id="quote-author"
+            placeholder="Genre"> <br>
+        <input name="image" type="text" class="form-control" id="quote-author"
+            placeholder="Album Image"> <br>
+        <button type="submit" class="btn btn-default">Add Album</button>
+      </form>
+
+    <% } %>
+
+    </div>
+
+  </div>
+
+<% include foot %>

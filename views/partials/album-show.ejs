@@ -1,0 +1,11 @@
+  <div class="card ">
+    <img class="card-img-top" src="<%= album.image %>" alt="Card image cap">
+      <div class="card-block">
+        <a class="card-title" href="/albums/<%=album.id %>"> <%= album.name %></a>
+            <p class="card-text"> 
+              Artist: <%= album.artist %> <br/> 
+              Genre: <%= album.genre %> <br/> 
+              Release Date: <%= album.release_date %> </p>
+            <a href="/albums/<%=album.id%>/edit" class="btn btn-primary">Edit</a>
+      </div>
+  </div>

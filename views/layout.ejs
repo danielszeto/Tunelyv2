@@ -1,0 +1,56 @@
+<% include partials/head %>
+
+<header>
+  <div class="container" >
+    <div class="headerimg">
+
+      <h1>Tune.ly</h1>
+      <p>/p> 
+    </div>
+  </div>
+</header>
+
+<hr>
+
+<hr>
+
+<h2> All Albums </h2>
+
+<a href="/albums/new" class="btn btn-success">Add an Album</a>
+
+<hr>
+
+
+
+<% for (var i = 0; i < albums.length; i++) { %>
+
+
+<div class="col-sm-4"> 
+  <div class="card ">
+    <img class="card-img-top" src="<%= albums[i].image %>" alt="Card image cap">
+      <div class="card-block">
+        <a class="card-title" href="/albums/<%=albums[i].id %>"> <%= albums[i].name %></a>
+            <p class="card-text"> 
+              Artist: <%= albums[i].artist %> <br/> 
+              Genre: <%= albums[i].genre %> <br/> 
+              Release Date: <%= albums[i].release_date %> </p>
+            <a href="/albums/:id/edit" class="btn btn-primary">Edit</a>
+      </div>
+  </div>
+</div>
+
+<% } %>
+
+
+</body>
+
+<div>
+<% include partials/footer %>
+</div>
+
+
+</html>
+
+
+
+

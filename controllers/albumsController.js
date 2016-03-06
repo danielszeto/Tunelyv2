@@ -69,6 +69,18 @@ function updateAlbum (req, res) {
   });
 }
 
+// DELETE /albums/:id
+function removeAlbum (req, res) {
+  Album.findByIdAndRemove(req.params.id, function (error, album) {
+    if (error) {
+      res.json({ message: 'Could not delete quote b/c:' + error });
+    } else {
+      console.log('this quote deleted: ', album);
+      res.redirect('/albums');
+    }
+  });
+}
+
 
 
 module.exports = {
@@ -78,5 +90,5 @@ module.exports = {
   getAlbum: getAlbum,
   editAlbum: editAlbum,
   updateAlbum: updateAlbum,
-  // removeQuote: removeQuote
+  removeAlbum: removeAlbum
 };

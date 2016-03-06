@@ -13,8 +13,8 @@ router.route('/albums/new')
   .get(albumsController.newAlbum);
 router.route('/albums/:id')
   .get(albumsController.getAlbum)
-  .put(albumsController.updateAlbum);
-//   .delete(quotesController.removeQuote);
+  .put(albumsController.updateAlbum)
+  .delete(albumsController.removeAlbum);
 router.route('/albums/:id/edit')
   .get(albumsController.editAlbum);
 

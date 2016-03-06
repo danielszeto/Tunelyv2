@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Song = require('./song');
 
 var AlbumSchema = mongoose.Schema({
   name: String,
@@ -7,6 +8,8 @@ var AlbumSchema = mongoose.Schema({
   genre: String,
   image: String,
 
+  songs: [Song.schema],
+
   created_at: Date,
   updated_at: Date
 });
@@ -14,3 +17,5 @@ var AlbumSchema = mongoose.Schema({
 var Album = mongoose.model('Album', AlbumSchema);
 
 module.exports = Album;
+
+

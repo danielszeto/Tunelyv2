@@ -1,5 +1,9 @@
 <% include head %>
 
+<h4> Album </h4>
+
+<hr>
+
 <div class="show_Album">
   <div class="card ">
     <img class="card-img-top" src="<%= album.image %>" alt="Card image cap">
@@ -12,7 +16,7 @@
             <a href="/albums/<%=album.id%>" class="btn btn-primary">Edit</a>
               <form method="POST" action="/albums/<%= album._id %>?_method=DELETE">
                 <input type="hidden" name="_method" value="DELETE">
-                <button type="submit">Delete</button>
+                <button type="submit" class="btn btn-default">Delete</button>
               </form>
   </div>
 </div>
